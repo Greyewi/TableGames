@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6515429e-6ad9-48de-a93b-9d4846e8eb12" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/TableGames.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/angular-settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/templateLanguages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/typescript-compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Characters/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Events/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Games/CreateGame.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Games/GameCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Games/GamesList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Games/forms/CreateGameForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Games/forms/EditGameForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Games/forms/validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Games/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Games/style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Items/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layout/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layout/Help.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layout/Story/AsideMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layout/Story/asideMaterialStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layout/Story/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layout/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layout/style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/characteristic.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/characters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/events.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/games.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/items.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/locations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/history.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/saga.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/Drawer/drawDuck.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/Drawer/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialCheckbox/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialDatePicker/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialDatePicker/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialDualTextareaInput/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialDualTextareaInput/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialIcon/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialInput/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialModal/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialMultySelect/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialMultySelect/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialSelect/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialSelect/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="SCSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/table-games/node_modules" />
+  </component>
+  <component name="ProjectId" id="1guJVuh5hnRjiB8Gd5SqnaN0kJz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="HbShouldOpenHtmlAsHb" value="disabled" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ejs.close.delimiter" value="%&gt;" />
+    <property name="ejs.open.delimiter" value="&lt;%" />
+    <property name="javascript.nodejs.core.library.configured.version" value="13.3.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="13.13.15" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Items" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.jscs" value="" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v13.3.0/bin/node" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.prettier.on.save" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Items" />
+      <recent name="$PROJECT_DIR$/src/shared/ui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Layout/Story" />
+      <recent name="$PROJECT_DIR$/src/components/layout" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="locations.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/ducks/locations.js" working-dir="$PROJECT_DIR$/src/ducks">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.locations.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6515429e-6ad9-48de-a93b-9d4846e8eb12" name="Default" comment="" />
+      <created>1598949884666</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598949884666</updated>
+      <workItem from="1598949885870" duration="1498000" />
+      <workItem from="1598954103563" duration="236000" />
+      <workItem from="1598954357639" duration="1267000" />
+      <workItem from="1598956970220" duration="212000" />
+      <workItem from="1598957220005" duration="421000" />
+      <workItem from="1598957718711" duration="332000" />
+      <workItem from="1598958576444" duration="692000" />
+      <workItem from="1598964938256" duration="890000" />
+      <workItem from="1598966272069" duration="176000" />
+      <workItem from="1598966543220" duration="80000" />
+      <workItem from="1598966797403" duration="128000" />
+      <workItem from="1598967123026" duration="21816000" />
+      <workItem from="1599473620327" duration="20795000" />
+      <workItem from="1599732307313" duration="4902000" />
+      <workItem from="1599842989384" duration="24494000" />
+      <workItem from="1600362499478" duration="1477000" />
+      <workItem from="1600504108963" duration="327000" />
+      <workItem from="1600593383452" duration="441000" />
+      <workItem from="1600596772843" duration="15349000" />
+      <workItem from="1600849462514" duration="192000" />
+      <workItem from="1600935229994" duration="370000" />
+      <workItem from="1601711926609" duration="324000" />
+      <workItem from="1602163890365" duration="173000" />
+      <workItem from="1602164159016" duration="1379000" />
+      <workItem from="1602314283125" duration="6254000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ts" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2035" y="237" key="#Inspections" timestamp="1599670812366">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2035" y="237" key="#Inspections/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599670812366" />
+    <state x="455" y="270" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600810067956">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="455" y="270" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877@0.23.1440.877" timestamp="1600810067956" />
+    <state x="2065" y="337" key="EditFileWatcherDialog" timestamp="1599732330526">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2065" y="337" key="EditFileWatcherDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599732330526" />
+    <state width="1899" height="290" key="GridCell.Tab.0.bottom" timestamp="1599732259904">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1899" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599732259904" />
+    <state width="1899" height="290" key="GridCell.Tab.0.center" timestamp="1599732259902">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1899" height="290" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599732259902" />
+    <state width="1899" height="290" key="GridCell.Tab.0.left" timestamp="1599732259900">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1899" height="290" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599732259900" />
+    <state width="1899" height="290" key="GridCell.Tab.0.right" timestamp="1599732259903">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1899" height="290" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599732259903" />
+    <state x="1960" y="146" key="SettingsEditor" timestamp="1599680705420">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state x="1960" y="146" key="SettingsEditor/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599680705420" />
+    <state x="500" y="258" width="574" height="490" key="find.popup" timestamp="1600809624957">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="2107" y="306" width="586" height="490" key="find.popup/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599937034359" />
+    <state x="500" y="258" width="574" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1600809624957" />
+    <state x="2063" y="256" width="672" height="678" key="search.everywhere.popup" timestamp="1598965459401">
+      <screen x="1440" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2063" y="256" width="672" height="678" key="search.everywhere.popup/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1598965459401" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="TableGames" type="b2602c69:ProjectViewProjectNode" />
+        <item name="TableGames" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
+  </component>
+</project>
