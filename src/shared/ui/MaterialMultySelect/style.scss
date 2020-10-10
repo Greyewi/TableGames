@@ -1,0 +1,27 @@
+.multy-select {
+
+  > div {
+    width: 100%;
+  }
+
+  .label-info {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.54);
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.54);
+    padding:5px 0;
+    cursor: pointer;
+  }
+
+  &.modal {
+
+    > span {
+      width: calc(100vw - 50%);
+      min-width: 356px;
+      > div {
+
+      }
+    }
+  }
+}
