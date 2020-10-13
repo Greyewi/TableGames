@@ -165,7 +165,7 @@ export const createGameSaga = function* () {
 export const initGamesListSaga = function* () {
   while (true) {
     yield take(INIT_GAMES_REQUEST)
-    const gamesList = localStorage.gamesList || []
+    const gamesList = localStorage.gamesList || "[]"
 
     try {
       yield put({
