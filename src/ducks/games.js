@@ -157,6 +157,10 @@ export const createGameSaga = function* () {
         type: CREATE_GAME_SUCCESS,
         payload: games
       })
+      yield put({
+        type: SET_ACTIVE_DRAW_REQUEST,
+        payload: ''
+      })
     } catch (err) {
       console.log(err)
     }
@@ -166,7 +170,7 @@ export const createGameSaga = function* () {
 export const initGamesListSaga = function* () {
   while (true) {
     yield take(INIT_GAMES_REQUEST)
-    const gamesList = localStorage.gamesList || []
+    const gamesList = localStorage.gamesList || "[]"
 
     try {
       yield put({
