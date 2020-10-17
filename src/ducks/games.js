@@ -107,6 +107,7 @@ export const changeActiveGameSaga = function* () {
     const {payload} = yield take(CHANGE_ACTIVE_GAME_REQUEST)
 
     try {
+
       const games = cloneDeep(yield select(gamesListSelector))
       games.map((item, key) => payload.id === key ? games[key] = payload.game : false)
       localStorage.setItem('gamesList', JSON.stringify(games))
