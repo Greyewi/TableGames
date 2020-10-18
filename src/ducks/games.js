@@ -45,11 +45,10 @@ export default function reducer(state = new ReducerRecord(), action) {
     case INIT_GAMES_SUCCESS:
     case REMOVE_GAME_SUCCESS:
     case CREATE_GAME_SUCCESS:
+    case CHANGE_ACTIVE_GAME_SUCCESS:
       return state.set('gameList', payload)
     case SET_ACTIVE_GAME_SUCCESS:
       return state.set('activeGame', payload)
-    case CHANGE_ACTIVE_GAME_SUCCESS:
-      return state.set('gameList', payload)
     default:
       return state
   }
@@ -107,7 +106,6 @@ export const changeActiveGameSaga = function* () {
     const {payload} = yield take(CHANGE_ACTIVE_GAME_REQUEST)
 
     try {
-
       const games = cloneDeep(yield select(gamesListSelector))
       games.map((item, key) => payload.id === key ? games[key] = payload.game : false)
       localStorage.setItem('gamesList', JSON.stringify(games))

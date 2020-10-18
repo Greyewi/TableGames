@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6515429e-6ad9-48de-a93b-9d4846e8eb12" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Events/components/list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Characteristics/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ducks/history-point.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/characteristic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/characteristic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/games.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,6 +150,7 @@
       <workItem from="1602334180885" duration="3862000" />
       <workItem from="1602574127427" duration="320000" />
       <workItem from="1602762005853" duration="2441000" />
+      <workItem from="1602934869811" duration="9808000" />
     </task>
     <servers />
   </component>
