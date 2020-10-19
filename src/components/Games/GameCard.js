@@ -23,6 +23,7 @@ const GameCard = props => {
     handleChangeGame,
     setActiveGame,
     onClose,
+    onRemove,
     name = "name of game",
     logo = "https://images-na.ssl-images-amazon.com/images/I/811Fbht0DLL.png",
     genre = ""
@@ -49,7 +50,7 @@ const GameCard = props => {
       <CardActions>
         <Button size="small" color="primary" onClick={setActiveGame}>Edit</Button>
         <AsideDrawer anchorName={name}>
-          <EditGameForm onSubmit={handleChangeGame} onClose={onClose}/>
+          <EditGameForm onSubmit={handleChangeGame} onClose={onClose} onRemove={onRemove}/>
         </AsideDrawer>
         <Link to={`/${name}`}>
           <Button size="small" color="primary">

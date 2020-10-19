@@ -8,14 +8,15 @@ import {
   changeActiveGame,
   initGamesList,
   setActiveGame,
-  createGame
+  createGame,
+  removeActiveGame
 } from 'ducks/games'
 
 import {
   setActiveDraw
 } from 'shared/ui/Drawer/drawDuck'
 
-const Games = ({changeActiveGame, createGame, initGamesList, gamesList, ...props}) => {
+const Games = ({changeActiveGame, createGame, initGamesList, removeActiveGame, gamesList, ...props}) => {
 
   const handleAddGame = ({name, genre, description, logo, countGamers}) => createGame({name, genre, description, logo, countGamers})
 
@@ -26,7 +27,7 @@ const Games = ({changeActiveGame, createGame, initGamesList, gamesList, ...props
   return (
     <main>
       <CreateGame onSubmit={handleAddGame} {...props}/>
-      <GamesList handleChangeGame={changeActiveGame} gamesList={gamesList} {...props}/>
+      <GamesList handleChangeGame={changeActiveGame} gamesList={gamesList} removeActiveGame={removeActiveGame} {...props}/>
     </main>
   )
 }
@@ -35,6 +36,7 @@ export default connect(state => ({
   gamesList: gamesListSelector(state),
 }), {
   changeActiveGame,
+  removeActiveGame,
   setActiveDraw,
   initGamesList,
   setActiveGame,

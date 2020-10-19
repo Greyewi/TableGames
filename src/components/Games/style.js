@@ -24,3 +24,12 @@ export const ButtonContainer = styled.div`
   padding: 20px;
   width: 100%;
 `;
+
+export const ButtonContainerBottom = styled.div`
+  display: flex;
+  justify-content: start;
+  padding: 20px 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+`;

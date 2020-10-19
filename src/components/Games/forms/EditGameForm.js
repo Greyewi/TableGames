@@ -3,7 +3,7 @@ import {reduxForm} from 'redux-form'
 import { connect } from 'react-redux'
 import MaterialInput from '../../../shared/ui/MaterialInput'
 import {Button} from "@material-ui/core"
-import {FormGroup, ButtonContainer} from '../style'
+import {FormGroup, ButtonContainer, ButtonContainerBottom} from '../style'
 import Typography from "@material-ui/core/Typography"
 import validate from './validate'
 import CardMedia from "@material-ui/core/CardMedia"
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-let EditGameForm = ({initialValues, onClose, handleSubmit}) => {
+let EditGameForm = ({initialValues, onClose, onRemove, handleSubmit}) => {
   const classes = useStyles()
 
   return <FormGroup
@@ -46,6 +46,9 @@ let EditGameForm = ({initialValues, onClose, handleSubmit}) => {
       <Button variant="outlined" color="secondary" onClick={onClose}>Cancel</Button>
       <Button variant="outlined" type="submit" color="primary">Confirm</Button>
     </ButtonContainer>
+    <ButtonContainerBottom>
+      <Button variant="outlined" color="secondary" onClick={onRemove}>Delete</Button>
+    </ButtonContainerBottom>
   </FormGroup>
 }
 
