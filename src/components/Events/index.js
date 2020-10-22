@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import {
   initEventsList,
@@ -7,29 +7,26 @@ import {
   removeEventFromList,
   setActiveEvent,
   changeActiveEvent,
-  eventsListSelector
+  eventsListSelector,
 } from 'ducks/events'
 
-
-const Events = ({initEventsList, eventsList}) => {
-
+const Events = ({ initEventsList, eventsList }) => {
   useEffect(() => {
     initEventsList()
   }, [initEventsList])
 
-  return (
-    <main>
-      Events
-    </main>
-  )
+  return <main>Events</main>
 }
 
-export default connect(state => ({
-  eventsList: eventsListSelector(state),
-}), {
-  initEventsList,
-  addEventToList,
-  removeEventFromList,
-  setActiveEvent,
-  changeActiveEvent
-})(Events)
+export default connect(
+  state => ({
+    eventsList: eventsListSelector(state),
+  }),
+  {
+    initEventsList,
+    addEventToList,
+    removeEventFromList,
+    setActiveEvent,
+    changeActiveEvent,
+  }
+)(Events)

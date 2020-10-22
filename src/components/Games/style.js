@@ -5,7 +5,7 @@ export const AddGameContainer = styled.header`
   padding: 0 10px;
   display: flex;
   justify-content: space-between;
-`;
+`
 
 export const FormGroup = styled.form`
   display: flex;
@@ -16,11 +16,11 @@ export const FormGroup = styled.form`
   @media (min-width: 780px) {
     width: 500px;
   }
-`;
+`
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   padding: 20px;
   width: 100%;
-`;
+`

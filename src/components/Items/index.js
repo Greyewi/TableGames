@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import {
   initItemList,
@@ -8,23 +8,21 @@ import {
   itemsListSelector,
 } from 'ducks/items'
 
-const Items = ({initItemList}) => {
-
+const Items = ({ initItemList }) => {
   useEffect(() => {
     initItemList()
   }, [initItemList])
 
-  return (
-    <main>
-      Items
-    </main>
-  )
+  return <main>Items</main>
 }
 
-export default connect(state => ({
-  itemsList: itemsListSelector(state),
-}), {
-  initItemList,
-  setActiveItem,
-  changeActiveItem
-})(Items)
+export default connect(
+  state => ({
+    itemsList: itemsListSelector(state),
+  }),
+  {
+    initItemList,
+    setActiveItem,
+    changeActiveItem,
+  }
+)(Items)

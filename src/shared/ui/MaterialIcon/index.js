@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Icon from '@material-ui/core/Icon'
@@ -9,16 +9,17 @@ import red from '@material-ui/core/colors/red'
 Icon.propTypes = {
   classes: PropTypes.object,
   color: PropTypes.string,
-  name: PropTypes.string
+  name: PropTypes.string,
 }
 
 class MaterialIcon extends Component {
-  
   render() {
     const { onClick, classes, name, color, ...props } = this.props
     return (
       <div className={classes.root} onClick={onClick} {...props}>
-        <Icon className={classes.icon} color={color}>{name}</Icon>
+        <Icon className={classes.icon} color={color}>
+          {name}
+        </Icon>
       </div>
     )
   }

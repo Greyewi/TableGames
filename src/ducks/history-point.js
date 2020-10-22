@@ -1,9 +1,9 @@
-import {appName} from 'config'
-import {Record} from 'immutable'
-import {createSelector} from 'reselect'
-import {all, put, select, take} from 'redux-saga/effects'
+import { appName } from 'config'
+import { Record } from 'immutable'
+import { createSelector } from 'reselect'
+import { all, put, select, take } from 'redux-saga/effects'
 import cloneDeep from 'lodash/cloneDeep'
-import {SET_ACTIVE_DRAW_REQUEST} from 'shared/ui/Drawer/drawDuck'
+import { SET_ACTIVE_DRAW_REQUEST } from 'shared/ui/Drawer/drawDuck'
 
 /**
  * Constants
@@ -11,8 +11,7 @@ import {SET_ACTIVE_DRAW_REQUEST} from 'shared/ui/Drawer/drawDuck'
 
 export const moduleName = 'history-point'
 const prefix = `${appName}/${moduleName}`
-export const
-  INIT_HISTORY_REQUEST = `${prefix}/INIT_HISTORY_REQUEST`,
+export const INIT_HISTORY_REQUEST = `${prefix}/INIT_HISTORY_REQUEST`,
   INIT_HISTORY_SUCCESS = `${prefix}/INIT_HISTORY_SUCCESS`,
   SET_ACTIVE_HISTORY_REQUEST = `${prefix}/SET_ACTIVE_HISTORY_REQUEST`,
   SET_ACTIVE_HISTORY_SUCCESS = `${prefix}/SET_ACTIVE_HISTORY_SUCCESS`,
@@ -36,20 +35,20 @@ export const ReducerRecord = Record({
   gameId: null,
   historyPointsList: [],
   activeHistoryPoint: {
-    id: null,            // hash
+    id: null, // hash
     prevHistoryId: null,
-    text: '',            // long grid
+    text: '', // long grid
     storyPoints: new Map({}),
   },
 })
 
 export const ReducerStoryPoint = Record({
   position: null,
-  eventId: null
+  eventId: null,
 })
 
 export default function reducer(state = new ReducerRecord(), action) {
-  const {type, payload} = action
+  const { type, payload } = action
 
   switch (type) {
     case INIT_HISTORY_SUCCESS:
@@ -61,11 +60,17 @@ export default function reducer(state = new ReducerRecord(), action) {
     case CHANGE_TEXT_HISTORY_SUCCESS:
       return state.updateIn(['activeHistoryPoint', 'text'], () => payload)
     case ADD_STORY_POINT_SUCCESS:
-      return state.updateIn(['activeHistoryPoint', 'storyPoints'], point => point.set(payload.id, new ReducerStoryPoint(payload)))
+      return state.updateIn(['activeHistoryPoint', 'storyPoints'], point =>
+        point.set(payload.id, new ReducerStoryPoint(payload))
+      )
     case CHANGE_STORY_POINT_POSITION_SUCCESS:
-      return state.updateIn(['activeHistoryPoint', 'storyPoints'], point => point.set(payload.id, new ReducerStoryPoint(payload)))
+      return state.updateIn(['activeHistoryPoint', 'storyPoints'], point =>
+        point.set(payload.id, new ReducerStoryPoint(payload))
+      )
     case DELETE_STORY_POINT_SUCCESS:
-      return state.updateIn(['activeHistoryPoint', 'storyPoints'], point => point.delete(payload.id))
+      return state.updateIn(['activeHistoryPoint', 'storyPoints'], point =>
+        point.delete(payload.id)
+      )
     default:
       return state
   }
@@ -76,9 +81,18 @@ export default function reducer(state = new ReducerRecord(), action) {
  * */
 
 export const stateSelector = state => state[moduleName] && state[moduleName]
-export const historyPointsListSelector = createSelector(stateSelector, state => state.historyPointsList)
-export const activeHistoryPointSelector = createSelector(stateSelector, state => state.activeHistoryPoint)
-export const storyPointsSelector = createSelector(activeHistoryPointSelector, state => state.storyPoints)
+export const historyPointsListSelector = createSelector(
+  stateSelector,
+  state => state.historyPointsList
+)
+export const activeHistoryPointSelector = createSelector(
+  stateSelector,
+  state => state.activeHistoryPoint
+)
+export const storyPointsSelector = createSelector(
+  activeHistoryPointSelector,
+  state => state.storyPoints
+)
 
 /**
  * Action Creators
@@ -86,49 +100,49 @@ export const storyPointsSelector = createSelector(activeHistoryPointSelector, st
 
 export function initHistoryList() {
   return {
-    type: INIT_HISTORY_REQUEST
+    type: INIT_HISTORY_REQUEST,
   }
 }
 
 export function createHistory(historyData) {
   return {
     type: CREATE_HISTORY_REQUEST,
-    payload: historyData
+    payload: historyData,
   }
 }
 
 export function setActiveHistory(history) {
   return {
     type: SET_ACTIVE_HISTORY_REQUEST,
-    payload: history
+    payload: history,
   }
 }
 
 export function changeActiveHistoryText(text) {
   return {
     type: CHANGE_TEXT_HISTORY_REQUEST,
-    payload: text
+    payload: text,
   }
 }
 
 export function addStoryPoint(position, eventId) {
   return {
     type: ADD_STORY_POINT_REQUEST,
-    payload: {position, eventId}
+    payload: { position, eventId },
   }
 }
 
 export function changeStoryPointPosition(position, eventId) {
   return {
     type: CHANGE_STORY_POINT_POSITION_REQUEST,
-    payload: {position, eventId}
+    payload: { position, eventId },
   }
 }
 
 export function deleteStoryPoint(position, eventId) {
   return {
     type: DELETE_STORY_POINT_REQUEST,
-    payload: {position, eventId}
+    payload: { position, eventId },
   }
 }
 
@@ -138,17 +152,19 @@ export function deleteStoryPoint(position, eventId) {
 
 export const deleteStoryPointSaga = function* () {
   while (true) {
-    const {payload} = yield take(DELETE_STORY_POINT_REQUEST)
+    const { payload } = yield take(DELETE_STORY_POINT_REQUEST)
     // TODO доделать
 
     try {
       const history = cloneDeep(yield select(historyPointsListSelector))
-      history.map((item, key) => payload.id === key ? history[key] = payload.history : false)
+      history.map((item, key) =>
+        payload.id === key ? (history[key] = payload.history) : false
+      )
       localStorage.setItem('historyList', JSON.stringify(history))
 
       yield put({
         type: DELETE_STORY_POINT_SUCCESS,
-        payload: history
+        payload: history,
       })
     } catch (err) {
       console.log(err)
@@ -158,17 +174,19 @@ export const deleteStoryPointSaga = function* () {
 
 export const changeStoryPointPositionSaga = function* () {
   while (true) {
-    const {payload} = yield take(CHANGE_STORY_POINT_POSITION_REQUEST)
+    const { payload } = yield take(CHANGE_STORY_POINT_POSITION_REQUEST)
     // TODO доделать
 
     try {
       const history = cloneDeep(yield select(historyPointsListSelector))
-      history.map((item, key) => payload.id === key ? history[key] = payload.history : false)
+      history.map((item, key) =>
+        payload.id === key ? (history[key] = payload.history) : false
+      )
       localStorage.setItem('historyList', JSON.stringify(history))
 
       yield put({
         type: CHANGE_STORY_POINT_POSITION_SUCCESS,
-        payload: history
+        payload: history,
       })
     } catch (err) {
       console.log(err)
@@ -178,16 +196,18 @@ export const changeStoryPointPositionSaga = function* () {
 
 export const addStoryPointSaga = function* () {
   while (true) {
-    const {payload} = yield take(ADD_STORY_POINT_REQUEST)
+    const { payload } = yield take(ADD_STORY_POINT_REQUEST)
     // TODO доделать
     try {
       const history = cloneDeep(yield select(historyPointsListSelector))
-      history.map((item, key) => payload.id === key ? history[key] = payload.history : false)
+      history.map((item, key) =>
+        payload.id === key ? (history[key] = payload.history) : false
+      )
       localStorage.setItem('historyList', JSON.stringify(history))
 
       yield put({
         type: ADD_STORY_POINT_SUCCESS,
-        payload: history
+        payload: history,
       })
     } catch (err) {
       console.log(err)
@@ -197,16 +217,18 @@ export const addStoryPointSaga = function* () {
 
 export const changeActiveHistoryTextSaga = function* () {
   while (true) {
-    const {payload} = yield take(CHANGE_TEXT_HISTORY_REQUEST)
+    const { payload } = yield take(CHANGE_TEXT_HISTORY_REQUEST)
     // TODO доделать
     try {
       const history = cloneDeep(yield select(historyPointsListSelector))
-      history.map((item, key) => payload.id === key ? history[key] = payload.history : false)
+      history.map((item, key) =>
+        payload.id === key ? (history[key] = payload.history) : false
+      )
       localStorage.setItem('historyList', JSON.stringify(history))
 
       yield put({
         type: CHANGE_TEXT_HISTORY_SUCCESS,
-        payload: history
+        payload: history,
       })
     } catch (err) {
       console.log(err)
@@ -216,11 +238,11 @@ export const changeActiveHistoryTextSaga = function* () {
 
 export const setActiveHistorySaga = function* () {
   while (true) {
-    const {payload} = yield take(SET_ACTIVE_HISTORY_REQUEST)
+    const { payload } = yield take(SET_ACTIVE_HISTORY_REQUEST)
     try {
       yield put({
         type: SET_ACTIVE_HISTORY_SUCCESS,
-        payload: payload
+        payload: payload,
       })
     } catch (err) {
       console.log(err)
@@ -230,7 +252,7 @@ export const setActiveHistorySaga = function* () {
 
 export const createHistorySaga = function* () {
   while (true) {
-    const {payload} = yield take(CREATE_HISTORY_REQUEST)
+    const { payload } = yield take(CREATE_HISTORY_REQUEST)
 
     const history = cloneDeep(yield select(historyPointsListSelector))
     history.push(payload)
@@ -239,7 +261,7 @@ export const createHistorySaga = function* () {
     try {
       yield put({
         type: CREATE_HISTORY_SUCCESS,
-        payload: history
+        payload: history,
       })
     } catch (err) {
       console.log(err)
@@ -250,12 +272,12 @@ export const createHistorySaga = function* () {
 export const initHistoryListSaga = function* () {
   while (true) {
     yield take(INIT_HISTORY_REQUEST)
-    const historyPointsList = localStorage.historyPointsList || "[]"
+    const historyPointsList = localStorage.historyPointsList || '[]'
 
     try {
       yield put({
         type: INIT_HISTORY_SUCCESS,
-        payload: JSON.parse(historyPointsList)
+        payload: JSON.parse(historyPointsList),
       })
     } catch (err) {
       console.log(err)

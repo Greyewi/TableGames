@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6515429e-6ad9-48de-a93b-9d4846e8eb12" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Characteristics/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ducks/history-point.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/characteristic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/characteristic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/games.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +151,10 @@
       <workItem from="1602334180885" duration="3862000" />
       <workItem from="1602574127427" duration="320000" />
       <workItem from="1602762005853" duration="2441000" />
-      <workItem from="1602934869811" duration="9808000" />
+      <workItem from="1602934869811" duration="13330000" />
+      <workItem from="1603214188054" duration="899000" />
+      <workItem from="1603216007802" duration="615000" />
+      <workItem from="1603381996262" duration="866000" />
     </task>
     <servers />
   </component>

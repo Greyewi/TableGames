@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect} from "react-redux"
+import { connect } from 'react-redux'
 
 import {
   characteristicsListSelector,
@@ -8,24 +8,23 @@ import {
   setActiveCharacteristic,
   changeActiveCharacteristic,
   removeCharacteristic,
-  createCharacteristic
+  createCharacteristic,
 } from 'ducks/characteristic'
 
 const Characteristic = () => {
-  return (
-    <div>
-
-    </div>
-  )
+  return <div></div>
 }
 
-export default connect(state => ({
-  characteristicsList: characteristicsListSelector(state),
-  activeCharacteristic: activeCharacteristicSelector(state),
-}), {
-  initCharacteristicList,
-  setActiveCharacteristic,
-  changeActiveCharacteristic,
-  removeCharacteristic,
-  createCharacteristic
-})(Characteristic)
+export default connect(
+  state => ({
+    characteristicsList: characteristicsListSelector(state),
+    activeCharacteristic: activeCharacteristicSelector(state),
+  }),
+  {
+    initCharacteristicList,
+    setActiveCharacteristic,
+    changeActiveCharacteristic,
+    removeCharacteristic,
+    createCharacteristic,
+  }
+)(Characteristic)

@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import clsx from 'clsx'
-import {useTheme} from '@material-ui/core/styles'
+import { useTheme } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -18,9 +18,9 @@ import ListItemText from '@material-ui/core/ListItemText'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MailIcon from '@material-ui/icons/Mail'
 import useStyles from './asideMaterialStyles'
-import {Link} from "react-router-dom"
+import { Link } from 'react-router-dom'
 
-export default function MiniDrawer({path, children}) {
+export default function MiniDrawer({ path, children }) {
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = useState(false)
@@ -35,7 +35,7 @@ export default function MiniDrawer({path, children}) {
 
   return (
     <div className={classes.root}>
-      <CssBaseline/>
+      <CssBaseline />
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
@@ -52,7 +52,7 @@ export default function MiniDrawer({path, children}) {
               [classes.hide]: open,
             })}
           >
-            <MenuIcon/>
+            <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
             Mini variant drawer
@@ -74,32 +74,40 @@ export default function MiniDrawer({path, children}) {
       >
         <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
+            {theme.direction === 'rtl' ? (
+              <ChevronRightIcon />
+            ) : (
+              <ChevronLeftIcon />
+            )}
           </IconButton>
         </div>
-        <Divider/>
+        <Divider />
         <List>
           {['events', 'items'].map((text, key) => (
             <Link to={`/${path}/${text}`} key={key}>
               <ListItem button>
-                <ListItemIcon>{key % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                <ListItemText primary={text}/>
+                <ListItemIcon>
+                  {key % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
               </ListItem>
             </Link>
           ))}
         </List>
-        <Divider/>
+        <Divider />
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-              <ListItemText primary={text}/>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
       </Drawer>
       <main className={classes.content}>
-        <div className={classes.toolbar}/>
+        <div className={classes.toolbar} />
         {children}
       </main>
     </div>

@@ -1,9 +1,9 @@
-import {appName} from '../config'
-import {Record} from 'immutable'
-import {createSelector} from 'reselect'
-import {all, put, select, take} from 'redux-saga/effects'
+import { appName } from '../config'
+import { Record } from 'immutable'
+import { createSelector } from 'reselect'
+import { all, put, select, take } from 'redux-saga/effects'
 import cloneDeep from 'lodash/cloneDeep'
-import {SET_ACTIVE_DRAW_REQUEST} from 'shared/ui/Drawer/drawDuck'
+import { SET_ACTIVE_DRAW_REQUEST } from 'shared/ui/Drawer/drawDuck'
 
 /**
  * Constants
@@ -11,8 +11,7 @@ import {SET_ACTIVE_DRAW_REQUEST} from 'shared/ui/Drawer/drawDuck'
 
 export const moduleName = 'games'
 const prefix = `${appName}/${moduleName}`
-export const
-  INIT_GAMES_REQUEST = `${prefix}/INIT_GAMES_REQUEST`,
+export const INIT_GAMES_REQUEST = `${prefix}/INIT_GAMES_REQUEST`,
   INIT_GAMES_SUCCESS = `${prefix}/INIT_GAMES_SUCCESS`,
   SET_ACTIVE_GAME_REQUEST = `${prefix}/SET_ACTIVE_GAME_REQUEST`,
   SET_ACTIVE_GAME_SUCCESS = `${prefix}/SET_ACTIVE_GAME_SUCCESS`,
@@ -34,13 +33,13 @@ export const ReducerRecord = Record({
     genre: '',
     description: '',
     logo: '',
-    countGamers: 0
-  }
+    countGamers: 0,
+  },
 })
 
 export default function reducer(state = new ReducerRecord(), action) {
-  const {type, payload} = action
-
+  const { type, payload } = action
+  console.log(state)
   switch (type) {
     case INIT_GAMES_SUCCESS:
     case REMOVE_GAME_SUCCESS:
@@ -59,12 +58,30 @@ export default function reducer(state = new ReducerRecord(), action) {
  * */
 
 export const stateSelector = state => state[moduleName] && state[moduleName]
-export const gamesListSelector = createSelector(stateSelector, state => state.gameList)
-export const activeGameSelector = createSelector(stateSelector, state => state.activeGame)
-export const activeGameNameSelector = createSelector(activeGameSelector, state => state.name)
-export const activeGameGenreSelector = createSelector(activeGameSelector, state => state.genre)
-export const activeGameDescriptionSelector = createSelector(activeGameSelector, state => state.description)
-export const activeGameCountGamersSelector = createSelector(activeGameSelector, state => state.countGamers)
+export const gamesListSelector = createSelector(
+  stateSelector,
+  state => state.gameList
+)
+export const activeGameSelector = createSelector(
+  stateSelector,
+  state => state.activeGame
+)
+export const activeGameNameSelector = createSelector(
+  activeGameSelector,
+  state => state.name
+)
+export const activeGameGenreSelector = createSelector(
+  activeGameSelector,
+  state => state.genre
+)
+export const activeGameDescriptionSelector = createSelector(
+  activeGameSelector,
+  state => state.description
+)
+export const activeGameCountGamersSelector = createSelector(
+  activeGameSelector,
+  state => state.countGamers
+)
 
 /**
  * Action Creators
@@ -72,28 +89,28 @@ export const activeGameCountGamersSelector = createSelector(activeGameSelector, 
 
 export function initGamesList() {
   return {
-    type: INIT_GAMES_REQUEST
+    type: INIT_GAMES_REQUEST,
   }
 }
 
 export function createGame(gameData) {
   return {
     type: CREATE_GAME_REQUEST,
-    payload: gameData
+    payload: gameData,
   }
 }
 
 export function setActiveGame(game) {
   return {
     type: SET_ACTIVE_GAME_REQUEST,
-    payload: game
+    payload: game,
   }
 }
 
 export function changeActiveGame(game, id) {
   return {
     type: CHANGE_ACTIVE_GAME_REQUEST,
-    payload: {game, id}
+    payload: { game, id },
   }
 }
 
@@ -103,20 +120,22 @@ export function changeActiveGame(game, id) {
 
 export const changeActiveGameSaga = function* () {
   while (true) {
-    const {payload} = yield take(CHANGE_ACTIVE_GAME_REQUEST)
+    const { payload } = yield take(CHANGE_ACTIVE_GAME_REQUEST)
 
     try {
       const games = cloneDeep(yield select(gamesListSelector))
-      games.map((item, key) => payload.id === key ? games[key] = payload.game : false)
+      games.map((item, key) =>
+        payload.id === key ? (games[key] = payload.game) : false
+      )
       localStorage.setItem('gamesList', JSON.stringify(games))
 
       yield put({
         type: SET_ACTIVE_DRAW_REQUEST,
-        payload: ''
+        payload: '',
       })
       yield put({
         type: CHANGE_ACTIVE_GAME_SUCCESS,
-        payload: games
+        payload: games,
       })
     } catch (err) {
       console.log(err)
@@ -126,15 +145,15 @@ export const changeActiveGameSaga = function* () {
 
 export const setActiveGameSaga = function* () {
   while (true) {
-    const {payload} = yield take(SET_ACTIVE_GAME_REQUEST)
+    const { payload } = yield take(SET_ACTIVE_GAME_REQUEST)
     try {
       yield put({
         type: SET_ACTIVE_DRAW_REQUEST,
-        payload: payload ? payload.name : ''
+        payload: payload ? payload.name : '',
       })
       yield put({
         type: SET_ACTIVE_GAME_SUCCESS,
-        payload: payload
+        payload: payload,
       })
     } catch (err) {
       console.log(err)
@@ -144,7 +163,7 @@ export const setActiveGameSaga = function* () {
 
 export const createGameSaga = function* () {
   while (true) {
-    const {payload} = yield take(CREATE_GAME_REQUEST)
+    const { payload } = yield take(CREATE_GAME_REQUEST)
 
     const games = cloneDeep(yield select(gamesListSelector))
     games.push(payload)
@@ -153,11 +172,11 @@ export const createGameSaga = function* () {
     try {
       yield put({
         type: CREATE_GAME_SUCCESS,
-        payload: games
+        payload: games,
       })
       yield put({
         type: SET_ACTIVE_DRAW_REQUEST,
-        payload: ''
+        payload: '',
       })
     } catch (err) {
       console.log(err)
@@ -168,12 +187,12 @@ export const createGameSaga = function* () {
 export const initGamesListSaga = function* () {
   while (true) {
     yield take(INIT_GAMES_REQUEST)
-    const gamesList = localStorage.gamesList || "[]"
+    const gamesList = localStorage.gamesList || '[]'
 
     try {
       yield put({
         type: INIT_GAMES_SUCCESS,
-        payload: JSON.parse(gamesList)
+        payload: JSON.parse(gamesList),
       })
     } catch (err) {
       console.log(err)
