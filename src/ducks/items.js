@@ -58,30 +58,6 @@ export const activeItemSelector = createSelector(
   stateSelector,
   state => state.activeItem
 )
-export const nameItemSelector = createSelector(
-  activeItemSelector,
-  state => state.name
-)
-export const costItemSelector = createSelector(
-  activeItemSelector,
-  state => state.cost
-)
-export const isUniqueItemSelector = createSelector(
-  activeItemSelector,
-  state => state.isUnique
-)
-export const typeItemSelector = createSelector(
-  activeItemSelector,
-  state => state.type
-)
-export const effectItemSelector = createSelector(
-  activeItemSelector,
-  state => state.effect
-)
-export const placeItemSelector = createSelector(
-  activeItemSelector,
-  state => state.place
-)
 
 /**
  * Action Creators

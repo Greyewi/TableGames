@@ -29,6 +29,7 @@ export const ReducerRecord = Record({
   charactersList: [],
   activeCharacter: {
     name: '',
+    isPlayer: true, // true - player, false - NPC
     stats: [],
     history: '',
     equipment: [],

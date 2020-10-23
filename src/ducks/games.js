@@ -117,7 +117,7 @@ export function changeActiveGame(game, id) {
 export function removeActiveGame(id) {
   return {
     type: REMOVE_GAME_REQUEST,
-    payload: {id}
+    payload: { id },
   }
 }
 
@@ -209,7 +209,7 @@ export const initGamesListSaga = function* () {
 
 export const removeGameSaga = function* () {
   while (true) {
-    const {payload} = yield take(REMOVE_GAME_REQUEST)
+    const { payload } = yield take(REMOVE_GAME_REQUEST)
     const games = cloneDeep(yield select(gamesListSelector))
 
     games.splice(payload.id, 1)
@@ -218,7 +218,11 @@ export const removeGameSaga = function* () {
     try {
       yield put({
         type: REMOVE_GAME_SUCCESS,
-        payload: games
+        payload: games,
+      })
+      yield put({
+        type: SET_ACTIVE_DRAW_REQUEST,
+        payload: payload ? payload.name : '',
       })
     } catch (err) {
       console.log(err)
