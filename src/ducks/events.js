@@ -143,6 +143,7 @@ export const changeActiveEventSaga = function* () {
     events.map((item, key) =>
       payload.id === key ? (events[key] = payload.event) : false
     )
+    localStorage.setItem('eventList', JSON.stringify(events))
 
     try {
       yield put({
@@ -201,6 +202,8 @@ export const addEventToListSaga = function* () {
     const events = cloneDeep(yield select(eventsListSelector))
     events.push(payload)
 
+    localStorage.setItem('eventList', JSON.stringify(events))
+
     try {
       yield put({
         type: CREATE_EVENT_SUCCESS,
@@ -219,18 +222,12 @@ export const addEventToListSaga = function* () {
 export const initEventsListSaga = function* () {
   while (true) {
     yield take(INIT_EVENTS_REQUEST)
+    const eventList = localStorage.eventList || JSON.stringify([])
 
     try {
       yield put({
         type: INIT_EVENTS_SUCCESS,
-        payload: [
-          {
-            name: 'awakening',
-            conditions: [() => true],
-            effects: [() => true],
-            isCompleted: 0,
-          },
-        ],
+        payload: JSON.parse(eventList),
       })
     } catch (err) {
       console.log(err)
