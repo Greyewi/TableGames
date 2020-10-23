@@ -9,6 +9,7 @@ import {
   initGamesList,
   setActiveGame,
   createGame,
+  removeActiveGame
 } from 'ducks/games'
 
 import { setActiveDraw } from 'shared/ui/Drawer/drawDuck'
@@ -39,15 +40,13 @@ const Games = ({
   )
 }
 
-export default connect(
-  state => ({
-    gamesList: gamesListSelector(state),
-  }),
-  {
-    changeActiveGame,
-    setActiveDraw,
-    initGamesList,
-    setActiveGame,
-    createGame,
-  }
-)(Games)
+export default connect(state => ({
+  gamesList: gamesListSelector(state),
+}), {
+  changeActiveGame,
+  removeActiveGame,
+  setActiveDraw,
+  initGamesList,
+  setActiveGame,
+  createGame
+})(Games)
