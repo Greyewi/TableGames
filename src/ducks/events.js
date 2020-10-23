@@ -3,6 +3,8 @@ import { Record } from 'immutable'
 import { createSelector } from 'reselect'
 import { all, take, put, select } from 'redux-saga/effects'
 import { remove } from 'lodash'
+import cloneDeep from 'lodash/cloneDeep'
+import { SET_ACTIVE_DRAW_REQUEST } from '../shared/ui/Drawer/drawDuck'
 
 /**
  * Constants
@@ -44,6 +46,7 @@ export default function reducer(state = new ReducerRecord(), action) {
     case INIT_EVENTS_SUCCESS:
     case REMOVE_EVENT_SUCCESS:
     case CREATE_EVENT_SUCCESS:
+      return state.set('eventList', payload)
     case CHANGE_ACTIVE_EVENT_SUCCESS:
       return state.set('eventList', payload)
     case SET_ACTIVE_EVENT_SUCCESS:
@@ -102,10 +105,12 @@ export const setActiveEvent = event => ({
   type: SET_ACTIVE_EVENT_REQUEST,
   payload: event,
 })
-export const changeActiveEvent = event => ({
-  type: CHANGE_ACTIVE_EVENT_REQUEST,
-  payload: event,
-})
+export const changeActiveEvent = (event, id) => {
+  return {
+    type: CHANGE_ACTIVE_EVENT_REQUEST,
+    payload: {event, id},
+  }
+}
 export const changeEventCompleteStatus = isComplete => ({
   type: COMPLETE_ACTIVE_EVENT_REQUEST,
   payload: isComplete,
@@ -129,14 +134,24 @@ export const changeEventCompleteStatusSaga = function* () {
     }
   }
 }
+
 export const changeActiveEventSaga = function* () {
   while (true) {
     const { payload } = yield take(CHANGE_ACTIVE_EVENT_REQUEST)
+    const events = cloneDeep(yield select(eventsListSelector))
+
+    events.map((item, key) =>
+      payload.id === key ? (events[key] = payload.event) : false
+    )
 
     try {
       yield put({
         type: CHANGE_ACTIVE_EVENT_SUCCESS,
-        payload: payload,
+        payload: events,
+      })
+      yield put({
+        type: SET_ACTIVE_DRAW_REQUEST,
+        payload: '',
       })
     } catch (err) {
       console.log(err)
@@ -149,6 +164,10 @@ export const setActiveEventSaga = function* () {
     const { payload } = yield take(SET_ACTIVE_EVENT_REQUEST)
 
     try {
+      yield put({
+        type: SET_ACTIVE_DRAW_REQUEST,
+        payload: payload ? payload.name : '',
+      })
       yield put({
         type: SET_ACTIVE_EVENT_SUCCESS,
         payload: payload,
@@ -179,13 +198,17 @@ export const removeEventFromListSaga = function* () {
 export const addEventToListSaga = function* () {
   while (true) {
     const { payload } = yield take(CREATE_EVENT_REQUEST)
-    const events = yield select(eventsListSelector)
+    const events = cloneDeep(yield select(eventsListSelector))
     events.push(payload)
 
     try {
       yield put({
         type: CREATE_EVENT_SUCCESS,
         payload: events,
+      })
+      yield put({
+        type: SET_ACTIVE_DRAW_REQUEST,
+        payload: '',
       })
     } catch (err) {
       console.log(err)
@@ -220,6 +243,7 @@ export const saga = function* () {
     initEventsListSaga(),
     addEventToListSaga(),
     setActiveEventSaga(),
+    changeActiveEventSaga(),
     removeEventFromListSaga(),
     changeEventCompleteStatusSaga(),
   ])
