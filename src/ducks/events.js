@@ -222,12 +222,12 @@ export const addEventToListSaga = function* () {
 export const initEventsListSaga = function* () {
   while (true) {
     yield take(INIT_EVENTS_REQUEST)
-    const eventList = localStorage.eventList || JSON.stringify([])
+    const eventList = localStorage.eventList || '[]'
 
     try {
       yield put({
         type: INIT_EVENTS_SUCCESS,
-        payload: JSON.parse(eventList),
+        payload: eventList,
       })
     } catch (err) {
       console.log(err)
