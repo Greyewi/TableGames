@@ -4,10 +4,10 @@ import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import store from './redux/store'
-import {Provider} from 'react-redux'
-import {ConnectedRouter} from 'connected-react-router/immutable'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router/immutable'
 import history from './history'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import { purple, lightBlue } from '@material-ui/core/colors'
 
 const theme = createMuiTheme({
@@ -19,8 +19,8 @@ const theme = createMuiTheme({
       main: lightBlue['A400'],
     },
     error: {
-      main: "#ff604f"
-    }
+      main: '#ff604f',
+    },
   },
 })
 
@@ -28,7 +28,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <ThemeProvider theme={theme}>
-        <App/>
+        <App />
       </ThemeProvider>
     </ConnectedRouter>
   </Provider>,

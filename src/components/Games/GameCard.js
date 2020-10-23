@@ -1,20 +1,20 @@
-import React from "react"
-import {makeStyles} from "@material-ui/core/styles"
-import Card from "@material-ui/core/Card"
-import CardMedia from "@material-ui/core/CardMedia"
-import CardContent from "@material-ui/core/CardContent"
-import Typography from "@material-ui/core/Typography"
-import CardActions from "@material-ui/core/CardActions"
-import Button from "@material-ui/core/Button"
-import AsideDrawer from "shared/ui/Drawer"
-import EditGameForm from "./forms/EditGameForm"
-import {Link} from "react-router-dom"
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Card from '@material-ui/core/Card'
+import CardMedia from '@material-ui/core/CardMedia'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import CardActions from '@material-ui/core/CardActions'
+import Button from '@material-ui/core/Button'
+import AsideDrawer from 'shared/ui/Drawer'
+import EditGameForm from './forms/EditGameForm'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    display: "inline-block",
-    margin: "10px"
+    display: 'inline-block',
+    margin: '10px',
   },
 })
 
@@ -48,7 +48,9 @@ const GameCard = props => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary" onClick={setActiveGame}>Edit</Button>
+        <Button size="small" color="primary" onClick={setActiveGame}>
+          Edit
+        </Button>
         <AsideDrawer anchorName={name}>
           <EditGameForm onSubmit={handleChangeGame} onClose={onClose} onRemove={onRemove}/>
         </AsideDrawer>
@@ -57,7 +59,6 @@ const GameCard = props => {
             Stories
           </Button>
         </Link>
-
       </CardActions>
     </Card>
   )

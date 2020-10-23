@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import GamesList from './GamesList'
 import CreateGame from './CreateGame'
 
@@ -12,13 +12,17 @@ import {
   removeActiveGame
 } from 'ducks/games'
 
-import {
-  setActiveDraw
-} from 'shared/ui/Drawer/drawDuck'
+import { setActiveDraw } from 'shared/ui/Drawer/drawDuck'
 
-const Games = ({changeActiveGame, createGame, initGamesList, gamesList, ...props}) => {
-
-  const handleAddGame = ({name, genre, description, logo, countGamers}) => createGame({name, genre, description, logo, countGamers})
+const Games = ({
+  changeActiveGame,
+  createGame,
+  initGamesList,
+  gamesList,
+  ...props
+}) => {
+  const handleAddGame = ({ name, genre, description, logo, countGamers }) =>
+    createGame({ name, genre, description, logo, countGamers })
 
   useEffect(() => {
     initGamesList()
@@ -26,8 +30,12 @@ const Games = ({changeActiveGame, createGame, initGamesList, gamesList, ...props
 
   return (
     <main>
-      <CreateGame onSubmit={handleAddGame} {...props}/>
-      <GamesList handleChangeGame={changeActiveGame} gamesList={gamesList} {...props}/>
+      <CreateGame onSubmit={handleAddGame} {...props} />
+      <GamesList
+        handleChangeGame={changeActiveGame}
+        gamesList={gamesList}
+        {...props}
+      />
     </main>
   )
 }

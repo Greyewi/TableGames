@@ -1,20 +1,20 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField'
-import {Field} from "redux-form"
+import { Field } from 'redux-form'
 import PropTypes from 'prop-types'
 import './style.scss'
 
 const renderTextField = ({
-                           input,
-                           defaultValue,
-                           label,
-                           type,
-                           initial,
-                           value,
-                           disabled,
-                           meta: {touched, error},
-                           ...custom
-                         }) => (
+  input,
+  defaultValue,
+  label,
+  type,
+  initial,
+  value,
+  disabled,
+  meta: { touched, error },
+  ...custom
+}) => (
   <TextField
     hinttext={label}
     floatinglabeltext={label}
@@ -31,19 +31,18 @@ const renderTextField = ({
   />
 )
 
-
 const renderTextFieldTimeFirefox = ({
-                                      input,
-                                      defaultValue,
-                                      label,
-                                      type,
-                                      initial,
-                                      value,
-                                      disabled,
-                                      meta: {touched, error},
-                                      ...custom
-                                    }) => (
-  <span className='custom-datefield'>
+  input,
+  defaultValue,
+  label,
+  type,
+  initial,
+  value,
+  disabled,
+  meta: { touched, error },
+  ...custom
+}) => (
+  <span className="custom-datefield">
     <TextField
       hinttext={label}
       floatinglabeltext={label}
@@ -60,9 +59,11 @@ const renderTextFieldTimeFirefox = ({
       }}
     />
     <TextField
-      onChange={e => input.onChange(input.value.split('T')[0] + 'T' + e.target.value)}
+      onChange={e =>
+        input.onChange(input.value.split('T')[0] + 'T' + e.target.value)
+      }
       value={input.value.split('T')[1]}
-      label={"Время"}
+      label={'Время'}
       type={'time'}
       defaultValue={input.value || defaultValue}
       disabled={disabled ? true : false}
@@ -74,17 +75,17 @@ const renderTextFieldTimeFirefox = ({
 )
 
 const renderTextFieldFirefox = ({
-                                  input,
-                                  defaultValue,
-                                  label,
-                                  type,
-                                  initial,
-                                  value,
-                                  disabled,
-                                  meta: {touched, error},
-                                  ...custom
-                                }) => (
-  <span className='custom-datefield'>
+  input,
+  defaultValue,
+  label,
+  type,
+  initial,
+  value,
+  disabled,
+  meta: { touched, error },
+  ...custom
+}) => (
+  <span className="custom-datefield">
     <TextField
       hinttext={label}
       floatinglabeltext={label}
@@ -104,20 +105,20 @@ const renderTextFieldFirefox = ({
 )
 
 class MaterialDatePicker extends Component {
-  
   static propTypes = {
-    type: PropTypes.oneOf(['date', 'datetime-local'])
+    type: PropTypes.oneOf(['date', 'datetime-local']),
   }
-  
+
   static defaultProps = {
-    type: 'datetime-local'
+    type: 'datetime-local',
   }
-  
+
   render() {
-    const {type, ...props} = this.props
-    let dateType = type, component = renderTextField
-    
-    if (navigator.userAgent.indexOf("Firefox") > 0) {
+    const { type, ...props } = this.props
+    let dateType = type,
+      component = renderTextField
+
+    if (navigator.userAgent.indexOf('Firefox') > 0) {
       if (dateType === 'datetime-local' || dateType === 'datetime') {
         component = renderTextFieldTimeFirefox
         dateType = 'date'
@@ -125,7 +126,7 @@ class MaterialDatePicker extends Component {
         component = renderTextFieldFirefox
       }
     }
-    
+
     if (!!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)) {
       if (dateType === 'datetime-local' || dateType === 'datetime') {
         component = renderTextFieldTimeFirefox
@@ -134,11 +135,9 @@ class MaterialDatePicker extends Component {
         component = renderTextFieldFirefox
       }
     }
-    
-    return <Field {...props} type={dateType} component={component}/>
+
+    return <Field {...props} type={dateType} component={component} />
   }
-  
 }
 
 export default MaterialDatePicker
-

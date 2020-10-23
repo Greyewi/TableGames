@@ -1,4 +1,4 @@
-const validate = ({name, genre, logo, countGamers}) => {
+const validate = ({ name, genre, logo, countGamers }) => {
   const errors = {}
   if (!name) errors.name = 'Enter game name'
   if (!genre) errors.genre = 'Enter game genre'

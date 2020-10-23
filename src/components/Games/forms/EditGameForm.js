@@ -1,24 +1,24 @@
 import React from 'react'
-import {reduxForm} from 'redux-form'
+import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import MaterialInput from '../../../shared/ui/MaterialInput'
 import {Button} from "@material-ui/core"
 import {FormGroup, ButtonContainer, ButtonContainerBottom} from '../style'
 import Typography from "@material-ui/core/Typography"
 import validate from './validate'
-import CardMedia from "@material-ui/core/CardMedia"
-import Card from "@material-ui/core/Card"
-import {makeStyles} from "@material-ui/core/styles"
+import CardMedia from '@material-ui/core/CardMedia'
+import Card from '@material-ui/core/Card'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    marginTop: '20px'
+    marginTop: '20px',
   },
   media: {
     height: 140,
   },
-});
+})
 
 let EditGameForm = ({initialValues, onClose, onRemove, handleSubmit}) => {
   const classes = useStyles()
@@ -54,13 +54,11 @@ let EditGameForm = ({initialValues, onClose, onRemove, handleSubmit}) => {
 
 EditGameForm = reduxForm({
   form: 'editGame',
-  validate
+  validate,
 })(EditGameForm)
 
-EditGameForm = connect(
-  ({games}) => ({
-    initialValues: games.activeGame
-  }),
-)(EditGameForm)
+EditGameForm = connect(({ games }) => ({
+  initialValues: games.activeGame,
+}))(EditGameForm)
 
 export default EditGameForm
