@@ -1,7 +1,8 @@
 import { appName } from '../config'
 import { Record } from 'immutable'
 import { createSelector } from 'reselect'
-import { all, take, put } from 'redux-saga/effects'
+import { all, take, put, select } from 'redux-saga/effects'
+import cloneDeep from 'lodash/cloneDeep'
 
 /**
  * Constants
@@ -17,14 +18,8 @@ export const INIT_CHARACTERS_DATA_REQUEST = `${prefix}/INIT_CHARACTERS_DATA_REQU
   CREATE_CHARACTER_SUCCESS = `${prefix}/CREATE_CHARACTER_SUCCESS`,
   SET_ACTIVE_CHARACTER_REQUEST = `${prefix}/SET_ACTIVE_CHARACTER_REQUEST`,
   SET_ACTIVE_CHARACTER_SUCCESS = `${prefix}/SET_ACTIVE_CHARACTER_SUCCESS`,
-  CHANGE_CHARACTER_STATS_REQUEST = `${prefix}/CHANGE_CHARACTER_STATS_REQUEST`,
-  CHANGE_CHARACTER_STATS_SUCCESS = `${prefix}/CHANGE_CHARACTER_STATS_SUCCESS`,
-  CHANGE_CHARACTER_NAME_REQUEST = `${prefix}/CHANGE_CHARACTER_NAME_REQUEST`,
-  CHANGE_CHARACTER_NAME_SUCCESS = `${prefix}/CHANGE_CHARACTER_NAME_SUCCESS`,
-  CHANGE_CHARACTER_HISTORY_REQUEST = `${prefix}/CHANGE_CHARACTER_HISTORY_REQUEST`,
-  CHANGE_CHARACTER_HISTORY_SUCCESS = `${prefix}/CHANGE_CHARACTER_HISTORY_SUCCESS`,
-  CHANGE_CHARACTER_EQUIPMENT_REQUEST = `${prefix}/CHANGE_CHARACTER_EQUIPMENT_REQUEST`,
-  CHANGE_CHARACTER_EQUIPMENT_SUCCESS = `${prefix}/CHANGE_CHARACTER_EQUIPMENT_SUCCESS`
+  CHANGE_ACTIVE_CHARACTER_REQUEST = `${prefix}/CHANGE_ACTIVE_CHARACTER_REQUEST`,
+  CHANGE_ACTIVE_CHARACTER_SUCCESS = `${prefix}/CHANGE_ACTIVE_CHARACTER_SUCCESS`
 
 /**
  * Reducer
@@ -47,17 +42,10 @@ export default function reducer(state = new ReducerRecord(), action) {
     case INIT_CHARACTERS_DATA_SUCCESS:
     case REMOVE_CHARACTER_SUCCESS:
     case CREATE_CHARACTER_SUCCESS:
+    case CHANGE_ACTIVE_CHARACTER_SUCCESS:
       return state.set('charactersList', payload)
     case SET_ACTIVE_CHARACTER_SUCCESS:
       return state.set('activeCharacter', payload)
-    case CHANGE_CHARACTER_NAME_SUCCESS:
-      return state.setIn(['activeCharacter', 'name'], payload)
-    case CHANGE_CHARACTER_STATS_SUCCESS:
-      return state.setIn(['activeCharacter', 'stats'], payload)
-    case CHANGE_CHARACTER_HISTORY_SUCCESS:
-      return state.setIn(['activeCharacter', 'history'], payload)
-    case CHANGE_CHARACTER_EQUIPMENT_SUCCESS:
-      return state.setIn(['activeCharacter', 'equipment'], payload)
     default:
       return state
   }
@@ -75,22 +63,6 @@ export const charactersListSelector = createSelector(
 export const activeCharacterSelector = createSelector(
   stateSelector,
   state => state.activeCharacter
-)
-export const nameCharacterSelector = createSelector(
-  activeCharacterSelector,
-  state => state.name
-)
-export const statsCharacterSelector = createSelector(
-  activeCharacterSelector,
-  state => state.stats
-)
-export const historyCharacterSelector = createSelector(
-  activeCharacterSelector,
-  state => state.history
-)
-export const equipmentCharacterSelector = createSelector(
-  activeCharacterSelector,
-  state => state.equipment
 )
 
 /**
@@ -117,31 +89,10 @@ export function createCharacter(character) {
   }
 }
 
-export function changeCharacterState(state) {
+export function changeCharacter(character, id) {
   return {
-    type: CHANGE_CHARACTER_STATS_REQUEST,
-    payload: state,
-  }
-}
-
-export function changeCharacterName(state) {
-  return {
-    type: CHANGE_CHARACTER_NAME_REQUEST,
-    payload: state,
-  }
-}
-
-export function changeCharacterHistory(state) {
-  return {
-    type: CHANGE_CHARACTER_HISTORY_REQUEST,
-    payload: state,
-  }
-}
-
-export function changeCharacterEquipment(equipment) {
-  return {
-    type: CHANGE_CHARACTER_EQUIPMENT_REQUEST,
-    payload: equipment,
+    type: CHANGE_ACTIVE_CHARACTER_REQUEST,
+    payload: { character, id },
   }
 }
 
@@ -149,59 +100,20 @@ export function changeCharacterEquipment(equipment) {
  * Sagas
  * */
 
-export const changeCharacterEquipmentSaga = function* () {
+export const changeActiveCharacterSaga = function* () {
   while (true) {
-    const { payload } = yield take(CHANGE_CHARACTER_EQUIPMENT_REQUEST)
+    const { payload } = yield take(CHANGE_ACTIVE_CHARACTER_REQUEST)
 
     try {
+      const characters = cloneDeep(yield select(charactersListSelector))
+      characters.map((item, key) =>
+        payload.id === key ? (characters[key] = payload.character) : false
+      )
+      localStorage.setItem('charactersList', JSON.stringify(characters))
+
       yield put({
-        type: CHANGE_CHARACTER_EQUIPMENT_SUCCESS,
-        payload: payload,
-      })
-    } catch (err) {
-      console.log(err)
-    }
-  }
-}
-
-export const changeCharacterHistorySaga = function* () {
-  while (true) {
-    const { payload } = yield take(CHANGE_CHARACTER_HISTORY_REQUEST)
-
-    try {
-      yield put({
-        type: CHANGE_CHARACTER_HISTORY_SUCCESS,
-        payload: payload,
-      })
-    } catch (err) {
-      console.log(err)
-    }
-  }
-}
-
-export const changeCharacterNameSaga = function* () {
-  while (true) {
-    const { payload } = yield take(CHANGE_CHARACTER_NAME_REQUEST)
-
-    try {
-      yield put({
-        type: CHANGE_CHARACTER_NAME_SUCCESS,
-        payload: payload,
-      })
-    } catch (err) {
-      console.log(err)
-    }
-  }
-}
-
-export const changeCharacterStateSaga = function* () {
-  while (true) {
-    const { payload } = yield take(CHANGE_CHARACTER_STATS_REQUEST)
-
-    try {
-      yield put({
-        type: CHANGE_CHARACTER_STATS_SUCCESS,
-        payload: payload,
+        type: CHANGE_ACTIVE_CHARACTER_SUCCESS,
+        payload: characters,
       })
     } catch (err) {
       console.log(err)
@@ -214,9 +126,13 @@ export const removeCharacterSaga = function* () {
     const { payload } = yield take(REMOVE_CHARACTER_REQUEST)
 
     try {
+      const characters = cloneDeep(yield select(charactersListSelector))
+      characters.splice(payload.id, 1)
+      localStorage.setItem('charactersList', JSON.stringify(characters))
+
       yield put({
         type: REMOVE_CHARACTER_REQUEST,
-        payload: payload,
+        payload: characters,
       })
     } catch (err) {
       console.log(err)
@@ -227,11 +143,14 @@ export const removeCharacterSaga = function* () {
 export const createCharacterSaga = function* () {
   while (true) {
     const { payload } = yield take(CREATE_CHARACTER_REQUEST)
-
     try {
+      const characters = cloneDeep(yield select(charactersListSelector))
+      characters.push(payload)
+      localStorage.setItem('charactersList', JSON.stringify(characters))
+
       yield put({
         type: CREATE_CHARACTER_SUCCESS,
-        payload: payload,
+        payload: characters,
       })
     } catch (err) {
       console.log(err)
@@ -243,23 +162,25 @@ export const initCharactersListSaga = function* () {
   while (true) {
     yield take(INIT_CHARACTERS_DATA_REQUEST)
 
+    // [{
+    //   name: 'Chrono',
+    //   stats: [],
+    //   history: '',
+    //   equipment: ['sword', 'rainbowHelm'],
+    // },
+    // {
+    //   name: 'Lucca',
+    //   stats: [],
+    //   history: '',
+    //   equipment: ['gun', 'rainbowHelm'],
+    // }]
+
     try {
+      const charactersList = localStorage.charactersList || '[]'
+
       yield put({
         type: INIT_CHARACTERS_DATA_SUCCESS,
-        payload: [
-          {
-            name: 'Chrono',
-            stats: [],
-            history: '',
-            equipment: ['sword', 'rainbowHelm'],
-          },
-          {
-            name: 'Lucca',
-            stats: [],
-            history: '',
-            equipment: ['gun', 'rainbowHelm'],
-          },
-        ],
+        payload: JSON.parse(charactersList),
       })
     } catch (err) {
       console.log(err)
@@ -272,9 +193,6 @@ export const saga = function* () {
     createCharacterSaga(),
     removeCharacterSaga(),
     initCharactersListSaga(),
-    changeCharacterNameSaga(),
-    changeCharacterStateSaga(),
-    changeCharacterHistorySaga(),
-    changeCharacterEquipmentSaga(),
+    changeActiveCharacterSaga(),
   ])
 }

@@ -88,10 +88,12 @@ export const placeItemSelector = createSelector(
  * */
 
 export const initItemList = () => ({ type: INIT_ITEMS_DATA_REQUEST })
+
 export const setActiveItem = item => ({
   type: SET_ACTIVE_ITEM_REQUEST,
   payload: item,
 })
+
 export const changeActiveItem = item => ({
   type: CHANGE_ACTIVE_ITEM_REQUEST,
   payload: item,

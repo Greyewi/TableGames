@@ -39,7 +39,6 @@ export const ReducerRecord = Record({
 
 export default function reducer(state = new ReducerRecord(), action) {
   const { type, payload } = action
-  console.log(state)
   switch (type) {
     case INIT_GAMES_SUCCESS:
     case REMOVE_GAME_SUCCESS:

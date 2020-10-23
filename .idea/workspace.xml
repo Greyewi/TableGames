@@ -20,9 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6515429e-6ad9-48de-a93b-9d4846e8eb12" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/shared/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/characters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/characters.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/games.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/items.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
@@ -86,6 +87,7 @@
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v13.3.0/bin/node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="run.prettier.on.save" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
@@ -154,7 +156,8 @@
       <workItem from="1602934869811" duration="13330000" />
       <workItem from="1603214188054" duration="899000" />
       <workItem from="1603216007802" duration="615000" />
-      <workItem from="1603381996262" duration="866000" />
+      <workItem from="1603381996262" duration="2545000" />
+      <workItem from="1603460953111" duration="2680000" />
     </task>
     <servers />
   </component>

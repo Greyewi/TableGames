@@ -16,7 +16,7 @@
     "clsx": "^1.1.1",
     "connected-react-router": "^6.8.0",
     "global": "^4.4.0",
-    "history": "5.0.0",
+    "history": "4.10.1",
     "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.20",
     "node-localstorage": "^2.1.6",
