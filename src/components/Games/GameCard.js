@@ -23,9 +23,10 @@ const GameCard = props => {
     handleChangeGame,
     setActiveGame,
     onClose,
-    name = 'name of game',
-    logo = 'https://images-na.ssl-images-amazon.com/images/I/811Fbht0DLL.png',
-    genre = '',
+    onRemove,
+    name = "name of game",
+    logo = "https://images-na.ssl-images-amazon.com/images/I/811Fbht0DLL.png",
+    genre = ""
   } = props
 
   const classes = useStyles()
@@ -51,7 +52,7 @@ const GameCard = props => {
           Edit
         </Button>
         <AsideDrawer anchorName={name}>
-          <EditGameForm onSubmit={handleChangeGame} onClose={onClose} />
+          <EditGameForm onSubmit={handleChangeGame} onClose={onClose} onRemove={onRemove}/>
         </AsideDrawer>
         <Link to={`/${name}`}>
           <Button size="small" color="primary">

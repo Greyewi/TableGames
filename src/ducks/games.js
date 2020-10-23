@@ -43,6 +43,7 @@ export default function reducer(state = new ReducerRecord(), action) {
   switch (type) {
     case INIT_GAMES_SUCCESS:
     case REMOVE_GAME_SUCCESS:
+      return state.set('gameList', payload)
     case CREATE_GAME_SUCCESS:
     case CHANGE_ACTIVE_GAME_SUCCESS:
       return state.set('gameList', payload)
@@ -111,6 +112,13 @@ export function changeActiveGame(game, id) {
   return {
     type: CHANGE_ACTIVE_GAME_REQUEST,
     payload: { game, id },
+  }
+}
+
+export function removeActiveGame(id) {
+  return {
+    type: REMOVE_GAME_REQUEST,
+    payload: {id}
   }
 }
 
@@ -200,9 +208,29 @@ export const initGamesListSaga = function* () {
   }
 }
 
+export const removeGameSaga = function* () {
+  while (true) {
+    const {payload} = yield take(REMOVE_GAME_REQUEST)
+    const games = cloneDeep(yield select(gamesListSelector))
+
+    games.splice(payload.id, 1)
+    localStorage.setItem('gamesList', JSON.stringify(games))
+
+    try {
+      yield put({
+        type: REMOVE_GAME_SUCCESS,
+        payload: games
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 export const saga = function* () {
   yield all([
     createGameSaga(),
+    removeGameSaga(),
     setActiveGameSaga(),
     initGamesListSaga(),
     changeActiveGameSaga(),
