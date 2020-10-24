@@ -108,7 +108,7 @@ export const setActiveEvent = event => ({
 export const changeActiveEvent = (event, id) => {
   return {
     type: CHANGE_ACTIVE_EVENT_REQUEST,
-    payload: {event, id},
+    payload: { event, id },
   }
 }
 export const changeEventCompleteStatus = isComplete => ({
@@ -227,7 +227,7 @@ export const initEventsListSaga = function* () {
     try {
       yield put({
         type: INIT_EVENTS_SUCCESS,
-        payload: eventList,
+        payload: JSON.parse(eventList),
       })
     } catch (err) {
       console.log(err)

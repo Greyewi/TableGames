@@ -3,6 +3,8 @@ import { Route, Switch, useParams } from 'react-router-dom'
 import AsideMenu from './AsideMenu'
 import Events from 'components/Events'
 import items from 'components/Items'
+import Characteristic from 'components/Characteristics'
+import Characters from 'components/Characters'
 
 const Story = () => {
   const pathKey = Object.keys(useParams())
@@ -13,6 +15,11 @@ const Story = () => {
         <Switch>
           <Route path={`/:${pathKey}/events`} component={Events} />
           <Route path={`/:${pathKey}/items`} component={items} />
+          <Route path={`/:${pathKey}/characters`} component={Characters} />
+          <Route
+            path={`/:${pathKey}/characteristic`}
+            component={Characteristic}
+          />
         </Switch>
       </AsideMenu>
     </main>

@@ -16,6 +16,7 @@ const enhancer = applyMiddleware(
   routerMiddleware(history),
   logger
 )
+
 const store = createStore(reducer, enhancer)
 
 sagaMiddleware.run(rootSaga)

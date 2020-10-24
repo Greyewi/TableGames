@@ -171,10 +171,11 @@ export const initCharacteristicListSaga = function* () {
   while (true) {
     yield take(INIT_CHARACTERISTICS_DATA_REQUEST)
     const characteristicList = localStorage.characteristicList || '[]'
+
     try {
       yield put({
         type: INIT_CHARACTERISTICS_DATA_SUCCESS,
-        payload: [JSON.parse(characteristicList)],
+        payload: JSON.parse(characteristicList),
       })
     } catch (err) {
       console.log(err)

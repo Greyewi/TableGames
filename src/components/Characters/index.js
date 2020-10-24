@@ -1,7 +1,7 @@
 import React from 'react'
 
-const CharactersList = () => {
+const Characters = () => {
   return <div>list</div>
 }
 
-export default CharactersList
+export default Characters

@@ -16,9 +16,10 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
-import MailIcon from '@material-ui/icons/Mail'
 import useStyles from './asideMaterialStyles'
 import { Link } from 'react-router-dom'
+import MenuLinks from './AsideMenuItems'
+import { urlParser } from 'shared/utils'
 
 export default function MiniDrawer({ path, children }) {
   const classes = useStyles()
@@ -55,7 +56,7 @@ export default function MiniDrawer({ path, children }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Mini variant drawer
+            {urlParser(1)}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -83,26 +84,15 @@ export default function MiniDrawer({ path, children }) {
         </div>
         <Divider />
         <List>
-          {['events', 'items'].map((text, key) => (
+          {MenuLinks.map((text, key) => (
             <Link to={`/${path}/${text}`} key={key}>
               <ListItem button>
                 <ListItemIcon>
-                  {key % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  <InboxIcon />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
             </Link>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
           ))}
         </List>
       </Drawer>

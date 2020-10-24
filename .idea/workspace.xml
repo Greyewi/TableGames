@@ -20,16 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6515429e-6ad9-48de-a93b-9d4846e8eb12" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Events/CreateEvent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Events/EventCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Events/EventsList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Events/forms/CreateEventForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Events/forms/EditEventForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Events/forms/validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Events/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Events/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layout/Story/AsideMenuItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Characters/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Characters/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/Story/AsideMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/Story/AsideMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/Story/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/Story/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/characteristic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/characteristic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/locations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/locations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,14 +99,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/Items" />
-      <recent name="$PROJECT_DIR$/src/shared/ui" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/Layout/Story" />
       <recent name="$PROJECT_DIR$/src/components/layout" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Items" />
+      <recent name="$PROJECT_DIR$/src/shared/ui" />
     </key>
   </component>
   <component name="RunManager">
@@ -160,7 +162,8 @@
       <workItem from="1603214188054" duration="899000" />
       <workItem from="1603216007802" duration="615000" />
       <workItem from="1603381996262" duration="2545000" />
-      <workItem from="1603460953111" duration="6687000" />
+      <workItem from="1603460953111" duration="8915000" />
+      <workItem from="1603573989527" duration="1901000" />
     </task>
     <servers />
   </component>
@@ -218,11 +221,11 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1960" y="146" key="SettingsEditor/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599680705420" />
-    <state x="500" y="258" width="574" height="490" key="find.popup" timestamp="1600809624957">
+    <state x="500" y="258" width="574" height="490" key="find.popup" timestamp="1603575568298">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="2107" y="306" width="586" height="490" key="find.popup/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599937034359" />
-    <state x="500" y="258" width="574" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1600809624957" />
+    <state x="500" y="258" width="574" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1603575568298" />
     <state x="2063" y="256" width="672" height="678" key="search.everywhere.popup" timestamp="1598965459401">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>

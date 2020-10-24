@@ -3,7 +3,6 @@ import { Record } from 'immutable'
 import { createSelector } from 'reselect'
 import { all, take, put, select } from 'redux-saga/effects'
 import cloneDeep from 'lodash/cloneDeep'
-import { gamesListSelector } from './games'
 
 /**
  * Constants
