@@ -17,7 +17,7 @@ const Story = () => {
           <Route path={`/:${pathKey}/items`} component={items} />
           <Route path={`/:${pathKey}/characters`} component={Characters} />
           <Route
-            path={`/:${pathKey}/characteristic`}
+            path={`/:${pathKey}/characteristics`}
             component={Characteristic}
           />
         </Switch>

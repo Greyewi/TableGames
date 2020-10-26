@@ -32,7 +32,7 @@ export const INIT_EVENTS_REQUEST = `${prefix}/INIT_EVENTS_REQUEST`,
 export const ReducerRecord = Record({
   eventList: [],
   activeEvent: {
-    name: '',
+    name: '', // isUnique
     conditions: [], // different states, then satisfy the conditions
     effects: [], // functions with changes others models, (with nested conditions)
     isCompleted: 0,
