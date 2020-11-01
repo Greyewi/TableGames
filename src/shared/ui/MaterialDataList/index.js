@@ -16,7 +16,6 @@ import { Button } from '@material-ui/core'
 
 const MaterialDataList = ({
   setActiveItem,
-  setActiveModal,
   handleChangeItem,
   onRemove,
   itemsList = [],
