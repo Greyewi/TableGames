@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { setActiveDraw } from 'shared/ui/Drawer/drawDuck'
 import CreateEvent from './CreateEvent'
-import MaterialDataList from '../../shared/ui/MaterialDataList'
+import MaterialDataList from 'shared/ui/MaterialDataList'
+import EditEventForm from './forms/EditEventForm'
+
 import {
   initEventsList,
   addEventToList,
@@ -31,11 +33,15 @@ const Events = ({
     <main>
       <CreateEvent onSubmit={handleCreateEvent} {...props} />
       <MaterialDataList
-        handleChangeItem={changeActiveEvent}
+        setActiveItem={setActiveEvent}
         onRemove={removeEventFromList}
         itemsList={eventsList}
-        setActiveItem={setActiveEvent}
-      />
+      >
+        <EditEventForm
+          onSubmit={item => changeActiveEvent({ ...item })}
+          onClose={() => setActiveEvent(null)}
+        />
+      </MaterialDataList>
     </main>
   )
 }

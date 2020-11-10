@@ -6,7 +6,7 @@ import FolderIcon from '@material-ui/icons/Folder'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import AsideDrawer from '../Drawer'
-import EditEventForm from '../../../components/Events/forms/EditEventForm'
+
 import IconButton from '@material-ui/core/IconButton'
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
@@ -16,75 +16,75 @@ import { Button } from '@material-ui/core'
 
 const MaterialDataList = ({
   setActiveItem,
-  handleChangeItem,
   onRemove,
   itemsList = [],
+  children,
 }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(null)
 
-  return itemsList.map((item, key) => (
-    <List key={key}>
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <FolderIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary={item.name} />
-        <ListItemSecondaryAction>
-          <AsideDrawer anchorName={item.name}>
-            <EditEventForm
-              onSubmit={item => handleChangeItem({ ...item }, key)}
-              onClose={() => setActiveItem(null)}
-            />
-          </AsideDrawer>
-          <IconButton
-            edge="end"
-            aria-label="edit"
-            onClick={() => setActiveItem(item)}
-          >
-            <EditIcon />
-          </IconButton>
-          <IconButton
-            edge="end"
-            aria-label="delete"
-            onClick={() => setIsOpen(true)}
-          >
-            <DeleteIcon />
-          </IconButton>
+  return itemsList.map(item => {
+    const handleRemove = () => {
+      setIsOpen(() => {
+        onRemove(isOpen)
+        return null
+      })
+    }
 
-          <MaterialModal
-            anchorName={item.name}
-            open={isOpen}
-            handleClose={() => setIsOpen(false)}
-          >
-            <>
-              <div>Удалить с концами?</div>
-              <Button
-                variant="outlined"
-                color="secondary"
-                onClick={() => {
-                  setIsOpen(false)
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                variant="outlined"
-                color="secondary"
-                onClick={() => {
-                  onRemove(item)
-                  setIsOpen(false)
-                }}
-              >
-                Confirm
-              </Button>
-            </>
-          </MaterialModal>
-        </ListItemSecondaryAction>
-      </ListItem>
-    </List>
-  ))
+    return (
+      <List key={item.name}>
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar>
+              <FolderIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary={item.name} />
+          <ListItemSecondaryAction>
+            <AsideDrawer anchorName={item.name}>{children}</AsideDrawer>
+            <IconButton
+              edge="end"
+              aria-label="edit"
+              onClick={() => setActiveItem(item)}
+            >
+              <EditIcon />
+            </IconButton>
+            <IconButton
+              edge="end"
+              aria-label="delete"
+              onClick={() => setIsOpen(item)}
+            >
+              <DeleteIcon />
+            </IconButton>
+            <MaterialModal
+              anchorName={item.name}
+              open={!!isOpen}
+              handleClose={() => setIsOpen(null)}
+            >
+              <>
+                <div>Seriously?</div>
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  onClick={() => {
+                    setIsOpen(null)
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleRemove}
+                >
+                  Confirm
+                </Button>
+              </>
+            </MaterialModal>
+          </ListItemSecondaryAction>
+        </ListItem>
+      </List>
+    )
+  })
 }
 
 export default MaterialDataList

@@ -153,6 +153,7 @@ export const changeActiveGameSaga = function* () {
 export const setActiveGameSaga = function* () {
   while (true) {
     const { payload } = yield take(SET_ACTIVE_GAME_REQUEST)
+
     try {
       yield put({
         type: SET_ACTIVE_DRAW_REQUEST,

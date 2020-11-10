@@ -141,9 +141,11 @@ export const changeActiveEventSaga = function* () {
     const events = cloneDeep(yield select(eventsListSelector))
 
     events.map((item, key) =>
-      payload.id === key ? (events[key] = payload.event) : false
+      payload.event.name === item.name ? (events[key] = payload.event) : false
     )
-    localStorage.setItem('eventList', JSON.stringify(events))
+
+    const activeGame = window.location.href.split('/')[3]
+    localStorage.setItem(activeGame, JSON.stringify({ events: events }))
 
     try {
       yield put({
@@ -185,7 +187,8 @@ export const removeEventFromListSaga = function* () {
     const events = cloneDeep(yield select(eventsListSelector))
     remove(events, item => item.name === payload.name)
 
-    localStorage.setItem('eventList', JSON.stringify(events))
+    const activeGame = window.location.href.split('/')[3]
+    localStorage.setItem(activeGame, JSON.stringify({ events: events }))
 
     try {
       yield put({
@@ -201,12 +204,13 @@ export const removeEventFromListSaga = function* () {
 export const addEventToListSaga = function* () {
   while (true) {
     const { payload } = yield take(CREATE_EVENT_REQUEST)
-    const events = cloneDeep(yield select(eventsListSelector))
-    events.push(payload)
-
-    localStorage.setItem('eventList', JSON.stringify(events))
 
     try {
+      const events = cloneDeep(yield select(eventsListSelector))
+      events.push(payload)
+      const activeGame = window.location.href.split('/')[3]
+      localStorage.setItem(activeGame, JSON.stringify({ events: events }))
+
       yield put({
         type: CREATE_EVENT_SUCCESS,
         payload: events,
@@ -224,12 +228,18 @@ export const addEventToListSaga = function* () {
 export const initEventsListSaga = function* () {
   while (true) {
     yield take(INIT_EVENTS_REQUEST)
-    const eventList = localStorage.eventList || '[]'
 
     try {
+      const activeGame = window.location.href.split('/')[3]
+      const gameEvents =
+        (localStorage.getItem(activeGame) &&
+          JSON.parse(localStorage.getItem(activeGame)) &&
+          JSON.parse(localStorage.getItem(activeGame)).events) ||
+        []
+
       yield put({
         type: INIT_EVENTS_SUCCESS,
-        payload: JSON.parse(eventList),
+        payload: gameEvents,
       })
     } catch (err) {
       console.log(err)

@@ -7,10 +7,10 @@ import { FormGroup, ButtonContainer } from '../style'
 import Typography from '@material-ui/core/Typography'
 import validate from './validate'
 
-let EditEventForm = ({ initialValues, onClose, handleSubmit }) => (
+let EditEventForm = ({ onClose, handleSubmit }) => (
   <FormGroup role="presentation" onSubmit={handleSubmit}>
     <Typography variant="h4">Edit event data </Typography>
-    <MaterialInput required label="name" name="name" />
+    <MaterialInput required label="name" name="name" disabled />
     <ButtonContainer>
       <Button variant="outlined" color="secondary" onClick={onClose}>
         Cancel

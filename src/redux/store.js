@@ -7,7 +7,7 @@ import history from '../history'
 import rootSaga from './saga'
 
 const logger = createLogger({
-  predicate: (getState, action) => action.type.includes('SUCCESS'),
+  //predicate: (getState, action) => action.type.includes('SUCCESS'),
 })
 
 const sagaMiddleware = createSagaMiddleware()
