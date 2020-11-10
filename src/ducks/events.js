@@ -182,13 +182,15 @@ export const setActiveEventSaga = function* () {
 export const removeEventFromListSaga = function* () {
   while (true) {
     const { payload } = yield take(REMOVE_EVENT_REQUEST)
-    const events = yield select(eventsListSelector)
-    const newEvents = remove(events, item => item.name === payload.name)
+    const events = cloneDeep(yield select(eventsListSelector))
+    remove(events, item => item.name === payload.name)
+
+    localStorage.setItem('eventList', JSON.stringify(events))
 
     try {
       yield put({
         type: REMOVE_EVENT_SUCCESS,
-        payload: newEvents,
+        payload: events,
       })
     } catch (err) {
       console.log(err)
