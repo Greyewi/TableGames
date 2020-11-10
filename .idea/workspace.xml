@@ -20,15 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6515429e-6ad9-48de-a93b-9d4846e8eb12" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Characteristics/CreateCharacteristic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Characteristics/forms/CreateCharacteristicForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Characteristics/forms/validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Characteristics/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Characteristics/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Characteristics/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/Story/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/Story/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/ui/MaterialModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/MaterialModal/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +85,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="run.prettier.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -162,6 +156,7 @@
       <workItem from="1603460953111" duration="8915000" />
       <workItem from="1603573989527" duration="4731000" />
       <workItem from="1603742070066" duration="1418000" />
+      <workItem from="1605028378092" duration="457000" />
     </task>
     <servers />
   </component>
@@ -215,19 +210,21 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="1899" height="290" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599732259903" />
-    <state x="1960" y="146" key="SettingsEditor" timestamp="1599680705420">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="390" y="125" key="SettingsEditor" timestamp="1605028319675">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1960" y="146" key="SettingsEditor/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599680705420" />
+    <state x="390" y="125" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1605028319675" />
     <state x="500" y="258" width="574" height="490" key="find.popup" timestamp="1603575568298">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="2107" y="306" width="586" height="490" key="find.popup/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599937034359" />
     <state x="500" y="258" width="574" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1603575568298" />
-    <state x="2063" y="256" width="672" height="678" key="search.everywhere.popup" timestamp="1598965459401">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="467" y="216" width="670" height="563" key="search.everywhere.popup" timestamp="1605028209175">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="2063" y="256" width="672" height="678" key="search.everywhere.popup/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1598965459401" />
+    <state x="467" y="216" width="670" height="563" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1605028209175" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
