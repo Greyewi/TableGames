@@ -20,9 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6515429e-6ad9-48de-a93b-9d4846e8eb12" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/MaterialDataList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/EventCard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/EventsList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/forms/CreateEventForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/forms/CreateEventForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/forms/EditEventForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/forms/EditEventForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/forms/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/forms/validate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Events/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Events/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/MaterialModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/MaterialModal/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +162,7 @@
       <workItem from="1603460953111" duration="8915000" />
       <workItem from="1603573989527" duration="4731000" />
       <workItem from="1603742070066" duration="1418000" />
-      <workItem from="1605028378092" duration="457000" />
+      <workItem from="1605028378092" duration="584000" />
     </task>
     <servers />
   </component>

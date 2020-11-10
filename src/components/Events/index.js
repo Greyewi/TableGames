@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { setActiveDraw } from 'shared/ui/Drawer/drawDuck'
 import CreateEvent from './CreateEvent'
-import EventsList from './EventsList'
+import MaterialDataList from '../../shared/ui/MaterialDataList'
 import {
   initEventsList,
   addEventToList,
@@ -18,9 +18,9 @@ const Events = ({
   addEventToList,
   removeEventFromList,
   eventsList,
+  setActiveEvent,
   ...props
 }) => {
-
   useEffect(() => {
     initEventsList()
   }, [initEventsList])
@@ -30,11 +30,11 @@ const Events = ({
   return (
     <main>
       <CreateEvent onSubmit={handleCreateEvent} {...props} />
-      <EventsList
-        handleChangeEvent={changeActiveEvent}
+      <MaterialDataList
+        handleChangeItem={changeActiveEvent}
         onRemove={removeEventFromList}
-        eventsList={eventsList}
-        {...props}
+        itemsList={eventsList}
+        setActiveItem={setActiveEvent}
       />
     </main>
   )
