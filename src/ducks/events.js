@@ -5,6 +5,7 @@ import { all, take, put, select } from 'redux-saga/effects'
 import { remove } from 'lodash'
 import cloneDeep from 'lodash/cloneDeep'
 import { SET_ACTIVE_DRAW_REQUEST } from '../shared/ui/Drawer/drawDuck'
+import { getModelDataStorage, setModelDataStorage } from 'shared/utils'
 
 /**
  * Constants
@@ -144,8 +145,7 @@ export const changeActiveEventSaga = function* () {
       payload.event.name === item.name ? (events[key] = payload.event) : false
     )
 
-    const activeGame = window.location.href.split('/')[3]
-    localStorage.setItem(activeGame, JSON.stringify({ events: events }))
+    setModelDataStorage(moduleName, events)
 
     try {
       yield put({
@@ -187,8 +187,7 @@ export const removeEventFromListSaga = function* () {
     const events = cloneDeep(yield select(eventsListSelector))
     remove(events, item => item.name === payload.name)
 
-    const activeGame = window.location.href.split('/')[3]
-    localStorage.setItem(activeGame, JSON.stringify({ events: events }))
+    setModelDataStorage(moduleName, events)
 
     try {
       yield put({
@@ -208,8 +207,7 @@ export const addEventToListSaga = function* () {
     try {
       const events = cloneDeep(yield select(eventsListSelector))
       events.push(payload)
-      const activeGame = window.location.href.split('/')[3]
-      localStorage.setItem(activeGame, JSON.stringify({ events: events }))
+      setModelDataStorage(moduleName, events)
 
       yield put({
         type: CREATE_EVENT_SUCCESS,
@@ -230,12 +228,7 @@ export const initEventsListSaga = function* () {
     yield take(INIT_EVENTS_REQUEST)
 
     try {
-      const activeGame = window.location.href.split('/')[3]
-      const gameEvents =
-        (localStorage.getItem(activeGame) &&
-          JSON.parse(localStorage.getItem(activeGame)) &&
-          JSON.parse(localStorage.getItem(activeGame)).events) ||
-        []
+      const gameEvents = getModelDataStorage(moduleName)
 
       yield put({
         type: INIT_EVENTS_SUCCESS,
